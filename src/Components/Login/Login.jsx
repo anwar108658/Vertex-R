@@ -15,7 +15,7 @@ const Login = () => {
   useEffect(() => {
    const userData = sessionStorage.getItem('userData');
    
-   if(userData.userId && userData.userName){
+   if(userData?.userId && userData?.userName){
     console.log('go to home');
     
    }else{
