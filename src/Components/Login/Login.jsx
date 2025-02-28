@@ -16,11 +16,9 @@ const Login = () => {
    const userData = sessionStorage.getItem('userData');
    
    if(userData?.userId && userData?.userName){
-    console.log('go to home');
-    
+    // console.log('go to home');
    }else{
-    console.log('first login');
-    
+    // console.log('first login');
    }
    
   }, []);
@@ -72,11 +70,7 @@ const Login = () => {
       console.log("Error:", error);
     }
   };
-  
-
-
- 
-  
+    
   return (
     <div className={style.main}>
         <div className={`${style.rightDiv}`}>
