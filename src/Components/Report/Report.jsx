@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import style from "./Report.module.css";
-import { Add, Close, Download, Replay, RotateLeft, Save, CachedSharp, Visibility, Expand, Fullscreen, Square, GridView} from '@mui/icons-material';
+import { Add, Close, Download, Replay, RotateLeft, Save, CachedSharp, Visibility, Expand, Fullscreen, Square, GridView, ArrowDropDownCircle} from '@mui/icons-material';
 import { data } from "../../data";
 import { RxExitFullScreen } from 'react-icons/rx';
+import FieldInput from '../CustomInputUI/FieldInput';
+import GroupOpen from '../isGroupOpen/GroupOpen';
 const Report = () => {
+    const [val,setVal] = useState({name:"anwar",fname:"abq"})
+
     const thead = Object.keys(data[0])
     const button = [
     <RotateLeft  sx={{fontSize:"1.2rem"}}/>,
@@ -37,6 +41,18 @@ const Report = () => {
                 <div><GridView sx={{fontSize:"1rem"}} fontSize='small'/><p>Collapse All</p></div>
             </div>
         </div>
+
+            <GroupOpen name="what">
+            <div style={{display:"flex",flexDirection:'column',maxWidth:"400px",padding:"1rem",gap:".5rem"}}>
+                <FieldInput label="Name" name="name" value={val.name} onChange={(e) => setVal((prev) => ({...prev,[e.target.name]:e.target.value}))} type={"text"}/>
+                <FieldInput label="FatherName" name="fname" value={val.fname} type={"text"}/>
+                <FieldInput label="Date" width="100%" name="fname" type={"date"}/>
+                <FieldInput label="Password" name="fname" type={"password"}/>
+                <FieldInput label="password" id={"hello"} type={true}/>
+            </div>
+            </GroupOpen>
+
+<GroupOpen>
         <table className={style.table}>
                 <thead className={style.thead}>
                     <tr>
@@ -62,6 +78,7 @@ const Report = () => {
                     ))}
                 </tbody>
             </table>
+            </GroupOpen>
     </div>
   )
 }
