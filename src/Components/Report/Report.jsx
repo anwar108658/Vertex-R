@@ -1,35 +1,19 @@
 import React, { useState } from 'react'
 import style from "./Report.module.css";
-import { Add, Close, Download, Replay, RotateLeft, Save, CachedSharp, Visibility, Expand, Fullscreen, Square, GridView, ArrowDropDownCircle} from '@mui/icons-material';
+import { Fullscreen, Square, GridView} from '@mui/icons-material';
 import { data } from "../../data";
 import { RxExitFullScreen } from 'react-icons/rx';
 import FieldInput from '../CustomInputUI/FieldInput';
 import GroupOpen from '../isGroupOpen/GroupOpen';
+import ViewBar from '../viewBar/ViewBar';
 const Report = () => {
     const [val,setVal] = useState({name:"anwar",fname:"abq"})
 
     const thead = Object.keys(data[0])
-    const button = [
-    <RotateLeft  sx={{fontSize:"1.2rem"}}/>,
-    <Save  sx={{fontSize:"1.2rem"}}/>,
-    <Download  sx={{fontSize:"1.2rem"}}/>,
-    <Replay  sx={{fontSize:"1.2rem"}}/>,
-    <Add  sx={{fontSize:"1.2rem"}}/>,
-    <Close  sx={{fontSize:"1.2rem"}}/>,
-    <CachedSharp  sx={{fontSize:"1.2rem"}}/>,
-    <Visibility  sx={{fontSize:"1.2rem"}}/>,
-]
 
   return (
     <div className={style.main}>
-        <div className={style.iconBar}>
-            {
-                button.map((item) => (
-                    <button>{item}</button>
-                ))
-            }
-            <p>3123/12321</p>
-        </div>
+        <ViewBar/>
         <div className={style.filterBar}>
             <p>item Master</p>
             <div className={style.nestedFilter}>
@@ -43,16 +27,17 @@ const Report = () => {
         </div>
 
             <GroupOpen name="what">
-            <div style={{display:"flex",flexDirection:'column',maxWidth:"400px",padding:"1rem",gap:".5rem"}}>
+            {/* <div style={{display:"flex",flexDirection:'column',maxWidth:"400px",padding:"1rem",gap:".5rem"}}> */}
                 <FieldInput label="Name" name="name" value={val.name} onChange={(e) => setVal((prev) => ({...prev,[e.target.name]:e.target.value}))} type={"text"}/>
                 <FieldInput label="FatherName" name="fname" value={val.fname} type={"text"}/>
                 <FieldInput label="Date" width="100%" name="fname" type={"date"}/>
                 <FieldInput label="Password" name="fname" type={"password"}/>
                 <FieldInput label="password" id={"hello"} type={true}/>
-            </div>
+            {/* </div> */}
             </GroupOpen>
-
-<GroupOpen>
+            
+            
+            <GroupOpen>
         <table className={style.table}>
                 <thead className={style.thead}>
                     <tr>
