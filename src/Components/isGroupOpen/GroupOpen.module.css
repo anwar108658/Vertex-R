@@ -15,9 +15,10 @@
     display: flex;
     gap: 5px;
     font-size: .7rem;
+    align-items: end;
     & div{
         display: flex;
-        align-items: end;
+        align-items: center;
         gap: 3px;
         padding: 0 5px;
         /* border-right: 1px solid #ccc; */
