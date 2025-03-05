@@ -15,6 +15,7 @@ const FieldInput = ({
     isChecked,
     width,
     maxWidth,
+    placeholder="",
 }) => {
     if (type === true||false) {
         return (
@@ -34,7 +35,8 @@ const FieldInput = ({
                     type={type} 
                     className={classNameInput} 
                     name={name} 
-                    value={value} 
+                    value={value}
+                    placeholder={placeholder}
                     onChange={onChange}
                 />
             </div>
