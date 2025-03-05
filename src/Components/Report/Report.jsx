@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import style from "./Report.module.css";
-import { Fullscreen, Square, GridView} from '@mui/icons-material';
 import { data } from "../../data";
-import { RxExitFullScreen } from 'react-icons/rx';
 import FieldInput from '../CustomInputUI/FieldInput';
 import GroupOpen from '../isGroupOpen/GroupOpen';
 import ViewBar from '../viewBar/ViewBar';
@@ -13,19 +11,7 @@ const Report = () => {
 
   return (
     <div className={style.main}>
-        <ViewBar/>
-        <div className={style.filterBar}>
-            <p>item Master</p>
-            <div className={style.nestedFilter}>
-                <div><Fullscreen fontSize='small'/></div>
-                <div><Square fontSize='small' sx={{fontSize:"1rem"}}/><p>Filter on</p></div>
-                <div><Square fontSize='small' sx={{fontSize:"1rem"}}/><p>Group on</p></div>
-                <div><Fullscreen fontSize='small'/><p>Group on</p></div>
-                <div><RxExitFullScreen fontSize='small'/><p>Collapse All</p></div>
-                <div><GridView sx={{fontSize:"1rem"}} fontSize='small'/><p>Collapse All</p></div>
-            </div>
-        </div>
-
+            <ViewBar/>
             <GroupOpen name="what">
             {/* <div style={{display:"flex",flexDirection:'column',maxWidth:"400px",padding:"1rem",gap:".5rem"}}> */}
                 <FieldInput label="Name" name="name" value={val.name} onChange={(e) => setVal((prev) => ({...prev,[e.target.name]:e.target.value}))} type={"text"}/>
@@ -37,7 +23,7 @@ const Report = () => {
             </GroupOpen>
             
             
-            <GroupOpen>
+            <GroupOpen type="grid">
         <table className={style.table}>
                 <thead className={style.thead}>
                     <tr>
